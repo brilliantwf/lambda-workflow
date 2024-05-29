@@ -85,7 +85,7 @@ jobs:
       working-directory: ./Kustomize/base
 
     - name: Apply Kustomize configuration
-      uses: mranismail/setup-kustomize@v2
+      uses: karancode/kustomize-github-action@master
       with:
         kustomize_version: '4.0.5'
         kustomize_build_dir: './base'
