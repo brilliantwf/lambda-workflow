@@ -81,11 +81,13 @@ jobs:
 
     - name: Update Kustomize image
       run: |
+        echo $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         kustomize edit set image $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
       working-directory: ./Kustomize/base
 
     - name: Apply Kustomize configuration
       run: |
-        kustomize build ./Kustomize/base  -o ./Kustomize/prod
-
+        pwd
+        kustomize build ./base  -o ./prod
+      working-directory: ./Kustomize/
 
