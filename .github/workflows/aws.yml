@@ -84,9 +84,11 @@ jobs:
         kustomize edit set image 54459206677.dkr.ecr.us-west-2.amazonaws.com/hello-world=54459206677.dkr.ecr.us-west-2.amazonaws.com/hello-world:${{ steps.build-image.outputs.uri_tag }}
       working-directory: ./Kustomize/base
 
-    - name: Apply Kustomize configuration
-      run: |
-        kustomize build ./base
-        kustomize build ./base > ./prod/lambda-app.yml
-      working-directory: ./Kustomize/
+    - name: Build Kustomize configuration and save to file
+      uses: karancode/kustomize-github-action@master
+      with:
+        kustomize_version: '4.0.5'
+        kustomize_build_dir: './base'
+        kustomize_output_file: './prod/output.yaml'
+        working-directory: ./Kustomize/
 
