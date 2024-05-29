@@ -87,7 +87,6 @@ jobs:
 
     - name: Apply Kustomize configuration
       run: |
-        mkdir -p prod
         kustomize build ./base  -o ./prod
       working-directory: ./Kustomize/
 
