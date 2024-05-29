@@ -82,7 +82,7 @@ jobs:
 
     - name: Update Kustomize image
       run: |
-        kustomize edit set image 54459206677.dkr.ecr.us-west-2.amazonaws.com/hello-world:$IMAGE_TAG
+        kustomize edit set image 54459206677.dkr.ecr.us-west-2.amazonaws.com/hello-world=54459206677.dkr.ecr.us-west-2.amazonaws.com/hello-world:$IMAGE_TAG
       working-directory: ./Kustomize/base
 
     - name: Apply Kustomize configuration
