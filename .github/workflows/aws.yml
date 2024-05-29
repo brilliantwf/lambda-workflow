@@ -29,6 +29,8 @@ name: Deploy to Amazon ECS
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - 'python-app/**'  # 仅在 src 目录下的文件变更时触发
 
 env:
   AWS_REGION: us-west-2                   # set this to your preferred AWS region, e.g. us-west-1
