@@ -85,13 +85,8 @@ jobs:
       working-directory: ./Kustomize/base
 
     - name: Apply Kustomize configuration
-      uses: mranismail/setup-kustomize@v2
-      with:
-        kustomize_version: '4.0.5'
-        kustomize_build_dir: './base'
-        kustomize_comment: true
-        kustomize_output_file: "./pro/rendered.yaml"
-        kustomize_build_options: "--load_restrictor none"
-        enable_alpha_plugins: true
-        working-directory: ./Kustomize/
+      run: |
+        kustomize build ./base
+        kustomize build ./base > ./prod/lambda-app.yml
+      working-directory: ./Kustomize/
 
