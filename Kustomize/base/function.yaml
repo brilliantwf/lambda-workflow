@@ -1,0 +1,13 @@
+apiVersion: lambda.services.k8s.aws/v1alpha1
+kind: Function
+metadata:
+ name: lambda-oci-ack
+ annotations:
+   services.k8s.aws/region: us-west-2
+spec:
+ name: lambda-oci-ack
+ packageType: Image
+ code:
+     imageURI: 54459206677.dkr.ecr.us-west-2.amazonaws.com/hello-world:latest
+ role: arn:aws:iam::54459206677:role/lambda_basic_execution
+ description: function created by ACK lambda-controller e2e tests
