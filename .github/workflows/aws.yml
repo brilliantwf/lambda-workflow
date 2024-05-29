@@ -77,12 +77,12 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "URI_TAG=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
-        echo "uri tag is ${{URI_TAG}}"
+        echo "url is ${{URI_TAG}}"
       working-directory: ./python-app
 
     - name: Update Kustomize image
       run: |
-        kustomize edit set image 54459206677.dkr.ecr.us-west-2.amazonaws.com/hello-world=54459206677.dkr.ecr.us-west-2.amazonaws.com/hello-world:${{ steps.set-output.outputs.URI_TAG}}
+        kustomize edit set image 54459206677.dkr.ecr.us-west-2.amazonaws.com/hello-world=54459206677.dkr.ecr.us-west-2.amazonaws.com/hello-world:new1
       working-directory: ./Kustomize/base
 
     - name: Apply Kustomize configuration
