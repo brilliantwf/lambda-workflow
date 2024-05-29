@@ -81,13 +81,11 @@ jobs:
 
     - name: Update Kustomize image
       run: |
-        echo $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        kustomize edit set image $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        kustomize edit set image 54459206677.dkr.ecr.us-west-2.amazonaws.com/hello-world:$IMAGE_TAG
       working-directory: ./Kustomize/base
 
     - name: Apply Kustomize configuration
       run: |
-        pwd
         kustomize build ./base  -o ./prod
       working-directory: ./Kustomize/
 
