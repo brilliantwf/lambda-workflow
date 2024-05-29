@@ -86,6 +86,6 @@ jobs:
 
     - name: Apply Kustomize configuration
       run: |
-        kustomize build ./Kustomize/base  -o ./Kustomize/prod/
+        kustomize build ./Kustomize/base  -o ./Kustomize/prod
 
 
