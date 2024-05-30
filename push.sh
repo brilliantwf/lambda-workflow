@@ -1,3 +1,5 @@
+ git update-index --skip-worktree Kustomize/
+ 
  git pull --rebase origin main
  git push origin main
  git add python-app/app.py
