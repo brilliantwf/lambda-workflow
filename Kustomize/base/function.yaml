@@ -8,6 +8,6 @@ spec:
  name: lambda-oci-ack
  packageType: Image
  code:
-     imageURI: 544592066775.dkr.ecr.us-west-2.amazonaws.com/hello-world:latest
+     imageURI: 544592066775.dkr.ecr.us-west-2.amazonaws.com/lambda-repo:latest
  role: arn:aws:iam::544592066775:role/lambda_basic_execution
  description: function created by ACK lambda-controller e2e tests

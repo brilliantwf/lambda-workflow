@@ -3,8 +3,8 @@ kind: Kustomization
 resources:
 - function.yaml
 images:
-- name: 544592066775.dkr.ecr.us-west-2.amazonaws.com/hello-world
-  newName: 544592066775.dkr.ecr.us-west-2.amazonaws.com/hello-world
+- name: 544592066775.dkr.ecr.us-west-2.amazonaws.com/lambda-repo
+  newName: 544592066775.dkr.ecr.us-west-2.amazonaws.com/lambda-repo
   newTag: bufsadf
 configurations:
 - kustomizeconfig/mykind.yaml
