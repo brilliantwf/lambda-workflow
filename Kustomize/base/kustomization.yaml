@@ -2,9 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - function.yaml
-images:
-- name: 544592066775.dkr.ecr.us-west-2.amazonaws.com/lambda-repo
-  newName: 544592066775.dkr.ecr.us-west-2.amazonaws.com/lambda-repo
-  newTag: bufsadf
+
 configurations:
 - kustomizeconfig/mykind.yaml
+images:
+- name: 544592066775.dkr.ecr.us-west-2.amazonaws.com/lambda-repo
+  newTag: 5e54e43b54192d3d8acf149c3f944edfa3e1cf40
