@@ -24,7 +24,7 @@
 #    See the documentation for each action used below for the recommended IAM policies for this IAM user,
 #    and best practices on handling the access key credentials.
 
-name: Deploy to Amazon ECS
+name: Deploy to Amazon ECR
 
 on:
   push:
@@ -44,6 +44,9 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     environment: production
+
+    permissions:
+      contents: write
 
     steps:
     - name: Checkout
@@ -90,3 +93,13 @@ jobs:
         mkdir -p ./prod
         kustomize build ./base > ./prod/lambda-app.yml
       working-directory: ./Kustomize/
+
+    - name: Commit and Push changes
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add ./prod/lambda-app.yml
+        git commit -m "Update Kustomize output"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
