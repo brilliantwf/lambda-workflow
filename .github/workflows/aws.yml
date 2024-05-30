@@ -86,9 +86,9 @@ jobs:
 
     - name: Apply Kustomize configuration
       run: |
-        cat ./base/kustomization.yaml
+        ls -ld .
         kustomize build ./base
-        mkdir -p ./prod
-        kustomize build ./base > ./prod/lambda-app.yml
+        sudo mkdir -p ./prod
+        kustomize build ./base | sudo tee ./prod/lambda-app.yml
       working-directory: ./Kustomize/
 
