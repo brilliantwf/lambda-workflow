@@ -6,7 +6,7 @@ metadata:
   name: lambda-oci-ack
 spec:
   code:
-    imageURI: 544592066775.dkr.ecr.us-west-2.amazonaws.com/lambda-repo:4e886ed610a0973b74aa9c38299ba7ae44119d7a
+    imageURI: 544592066775.dkr.ecr.us-west-2.amazonaws.com/lambda-repo:cf7d2f014858ab3d88727358022324a90704c4f7
   description: function created by ACK lambda-controller e2e tests
   name: lambda-oci-ack
   packageType: Image
