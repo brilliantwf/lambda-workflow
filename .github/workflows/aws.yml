@@ -37,7 +37,7 @@ env:
   ECR_REPOSITORY: lambda-repo           # set this to your Amazon ECR repository name
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   deploy:
@@ -86,16 +86,7 @@ jobs:
 
     - name: Apply Kustomize configuration
       run: |
-        ls -ld .
         kustomize build ./base
-        sudo mkdir -p ./prod
-        kustomize build ./base | sudo tee ./prod/lambda-app.yml
+        mkdir -p ./prod
+        kustomize build ./base > ./prod/lambda-app.yml
       working-directory: ./Kustomize/
-      
-    - name: Commit and Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: main
-        force: true
-        message: 'Update Kustomize output'
