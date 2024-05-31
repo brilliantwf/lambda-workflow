@@ -5,4 +5,4 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def hello():
-    return jsonify(status=200, message='hello world new2')
+    return '<h1><center>This Sample Flask Application</center></h1>'
