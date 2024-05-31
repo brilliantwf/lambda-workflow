@@ -1,8 +1,8 @@
-from flask import (Flask, jsonify)
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 
 @app.route('/', methods=['GET', 'POST'])
 def hello():
-    return '<h1><center>This Sample Flask Application</center></h1>'
+    return render_template('index.html')

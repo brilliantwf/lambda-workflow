@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Flask Webpage</title>
+    <style>
+        .image {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h3>This is an example image</h3>
+    <img src="{{ url_for('static', filename='images/example.jpg') }}" class="image" alt="Example Image">
+    <p>This is a simple description of the image.</p>
+</body>
+</html>
