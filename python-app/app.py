@@ -18,14 +18,6 @@ app.logger.addHandler(stream_handler)
 # 设置日志级别为DEBUG
 app.logger.setLevel(logging.DEBUG)
 
-# 创建一个自定义的 Jinja2 环境,忽略未定义的变量
-app.jinja_env = ChoiceLoader([
-    app.jinja_loader,
-    FileSystemLoader([])
-]).get_source({}, None)
-app.jinja_env.policies['undefined'] = 'ignore'
-
-
 @app.route('/', methods=['GET', 'POST'])
 def hello():
     return render_template('index.html')
