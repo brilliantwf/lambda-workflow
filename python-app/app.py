@@ -20,8 +20,6 @@ app.logger.setLevel(logging.DEBUG)
 @app.route('/', methods=['GET', 'POST'])
 def hello():
     return render_template('index.html')
-<<<<<<< HEAD
-=======
 
 @app.route('/blog', methods=['GET'])
 def blog_page():
@@ -29,4 +27,3 @@ def blog_page():
 
 if __name__ == '__main__':
     app.run()
->>>>>>> 1eee8c2 (app update commit)
