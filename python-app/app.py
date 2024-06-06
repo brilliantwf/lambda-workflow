@@ -1,6 +1,7 @@
 import logging
 import sys
 from flask import Flask, render_template
+from jinja2 import ChoiceLoader, FileSystemLoader
 
 app = Flask(__name__)
 
@@ -16,6 +17,14 @@ app.logger.addHandler(stream_handler)
 
 # 设置日志级别为DEBUG
 app.logger.setLevel(logging.DEBUG)
+
+# 创建一个自定义的 Jinja2 环境,忽略未定义的变量
+app.jinja_env = ChoiceLoader([
+    app.jinja_loader,
+    FileSystemLoader([])
+]).get_source({}, None)
+app.jinja_env.policies['undefined'] = 'ignore'
+
 
 @app.route('/', methods=['GET', 'POST'])
 def hello():
