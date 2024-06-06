@@ -32,7 +32,7 @@ def hello():
 
 @app.route('/blog', methods=['GET'])
 def blog_page():
-    app.logger.debug('Rendering blog template')
+    app.logger.debug('Rendering blog template!')
     return render_template('lambda.html')
 
 if __name__ == '__main__':
