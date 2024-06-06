@@ -1,0 +1,228 @@
+<!DOCTYPE html><html><head>
+      <title>lambda</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/fiwa/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.13/crossnote/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<hr>
+<h2>title: '基于ArgoCD构建Lambda和容器环境持续部署流水线'<br>
+author: Felix<br>
+output: word_document</h2>
+<h1 id="基于argocd构建lambda和容器环境持续部署流水线">基于ArgoCD构建Lambda和容器环境持续部署流水线 </h1>
+<p>越来越多的企业将其应用架构转向容器化和无服务器化,其中在AWS被广泛使用的容器平台是 Amazon Elastic Kubernetes Service (Amazon EKS),而无服务应用的平台是AWS Lambda,企业将其平台做了容器化/无服务器化改造后,一些应用的组件会分别部署到容器平台和无服务器平台,例如前端使用Lambda+Amazon API Gateway或者Lambda URL+ Amazon Cloudfont,后端使用ESK 容器平台,这时面临需要同时管理和维护两套架构,应用部署时如何构建部署流水线发布的问题.<br>
+本文介绍如何在Amazon EKS上通过ArgoCD 配合 Github Action,AWS Controllers for Kubernetes (ACK),Kustomize,等组件构建容器和无服务器应用的发布平台.<br>
+本文已假定读者有一定Amazon EKS 的使用基础和CI/CD的基本概念,文中涉及到的基础工具和组件安装请查阅相应文档此文不再赘述.</p>
+<h2 id="1-方案介绍">1. 方案介绍 </h2>
+<p>该方案利用Github Action,Kustomize,ArgoCD的工具,实现容器资源和AWS 资源的自动部署,最终可以实现开发人员只需要修改其应用代码提交/合并后会触发应用的部署,代码会根据应用的类型(kind)部署对应的资源.</p>
+<h3 id="11-方案架构">1.1 方案架构 </h3>
+<p><img src="img/image-3.png" alt="alt text"><br>
+其中主要的集成和发布流程如下:</p>
+<ol>
+<li>开发人员提交应用代码变更,指定文件夹的变更,触发Github Action操作</li>
+<li>Github Action 完成镜像的构建并推送至 Amazon Elastic Container Registry(ECR)</li>
+<li>Github Action 将构建以后Image的Tag 作为变量提供给Kustomize</li>
+<li>Kustomize 组合kustomization.yaml和app yaml,构建最终部署yaml文件推送到部署Repo</li>
+<li>ArgoCD定期执行Sync动作,持续监测Github Repo 特定文件目录的变更</li>
+<li>ArgoCD 监测到新的部署代码后通过K8S API 执行部署动作</li>
+<li>如果类型是ACK 内定义的资源例如 Lambda,RDS等则通过对应的ACK service controller部署新版本应用</li>
+<li>如果EKS 内置资源类型则直接通过K8S API部署新版应用.</li>
+</ol>
+<h3 id="12-方案组件">1.2 方案组件 </h3>
+<ol>
+<li><a href="https://docs.github.com/actions">Github Action</a>:GitHub Actions 是一个持续集成和持续交付(CI/CD)平台,由 GitHub 官方提供。它允许你直接在 GitHub 仓库中设置工作流程(workflow),自动执行构建、测试和部署等操作。在这个方案里我们主要用到其中的持续集成步骤.</li>
+<li><a href="https://kustomize.io/">Kustomize</a>:Kustomize 是一个用于定制 Kubernetes 配置的工具。它提供了一种声明式的方法来管理 Kubernetes 对象，而无需使用模板。Kustomize 允许用户通过 kustomization.yaml 文件来定义和修改 Kubernetes 资源，从而实现配置的复用和定制,Kubernetes 1.14 版本开始，Kustomize 已经内置于 kubectl 中.</li>
+<li><a href="https://argo-cd.readthedocs.io/">ArgoCD</a>:Argo CD 是一个用于 Kubernetes 的声明式 GitOps 持续交付工具，自动化应用程序的部署和生命周期管理,可以轻松完成对多个集群应用自动化部署和持续监控.</li>
+<li><a href="https://aws-controllers-k8s.github.io/community/docs/community/overview/">AWS Controllers for Kubernetes（ACK）</a>:ACK允许您直接从Kubernetes定义和使用AWS服务资源。使用ACK，您可以为您的Kubernetes应用程序利用AWS管理的服务，而无需在集群之外定义资源或运行集群内提供数据库或消息队列等支持功能的服务。</li>
+<li><a href="https://github.com/awslabs/aws-lambda-web-adapter">Lambda Web Adapter</a>:此方案中我们使用了Amazon Lambda Web Adapter部署Lambda 的Http应用,借助Lambda Web Adapter可以在不改造已有WEB应用程序代码，使用熟悉的框架构建 Web 应用程序并在 Amazon Lambda 上运行.</li>
+</ol>
+<h2 id="2-部署流程">2. 部署流程 </h2>
+<h3 id="21-gitaction-配置">2.1 GitAction 配置 </h3>
+<p>Git Action workflow 的关键代码部分定义如下:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>    - name: Build, tag, and push image to Amazon ECR
+      id: build-image  ## 构建镜像并推送
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        IMAGE_TAG: ${{ github.sha }}
+      run: |
+        # Build a docker container and
+        # push it to ECR so that it can
+        # be deployed to ECS.
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" &gt;&gt; $GITHUB_OUTPUT
+      working-directory: ./python-app
+
+    - name: Update Kustomize image
+      run: | ## 替换变量为构建后的ImageID
+        kustomize edit set image ${{ steps.build-image.outputs.image }}
+      working-directory: ./Kustomize/base
+
+    - name: Apply Kustomize configuration
+      run: | ## 构建最终生产yaml文件
+        kustomize build ./base
+        mkdir -p ./prod
+        kustomize build ./base &gt; ./prod/lambda-app.yml
+      working-directory: ./Kustomize/
+
+    - name: Commit and Push changes
+      run: | ## 提交到部署仓库
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add ./prod/lambda-app.yml
+        git commit -m "Update Kustomize output"
+        git push -u origin main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      working-directory: ./Kustomize/
+</code></pre><p>在一个应用做了变更以后,我们可以看到 Github Action中会产生相应的log方便我们观察构建过程.<br>
+<img src="img/image-6.png" alt="alt text"></p>
+<h3 id="22-kustomize-的安装配置">2.2. Kustomize 的安装配置 </h3>
+<p>从Kubernetes 1.14 版本开始，Kustomize 已经内置于 kubectl 中.在此方案中我们在Github Action通过引入以下代码,使得Github Action可以执行 Set和Build的行为</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>    - name: Set up Kustomize
+      uses: imranismail/setup-kustomize@v2
+      with:
+        kustomize-version: '4.0.5'
+</code></pre><p>一般情况下我们可以建立一个如下的仓库目录,通过不同的目录区分部署的阶段(Stage),实际情况可以根据企业自身情况规划,总体原则是能在不同环境之间复用配置,同时针对特定场景提供额外配置(例如overlays)</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>├── base (基础模板)
+│   ├── deploy.yaml
+│   ├── ingress.yaml
+│   ├── kustomization.yaml
+│   ├── nginx.conf
+│   ├── kustomizeconfig
+│       └──mykind.yaml    
+│   └── service.yaml
+└── overlays
+├── pre (预配置模板)
+│   ├── deploy-patch.yaml
+│   ├── ing-patch.yaml
+│   ├── kustomizeconfig
+│       └──mykind.yaml  
+│   └── kustomization.yaml
+├── prod (生产配置模板)
+│   ├── deploy-patch.yaml
+│   ├── ing-patch.yaml
+│   ├── kustomizeconfig
+│       └──mykind.yaml  
+    └── kustomization.yaml
+
+
+</code></pre><p>在实际使用时,我们只需要定义类似如下的模板文件,即可对模板进行更新</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+patches:
+  - path: patches.yaml
+</code></pre><p>在workflow 中,对于一般的变量替换 我们使用kustomize edit set 即可将变量文件写入kustomization.yaml文件中,后期使用kustomization.yaml配合其他资源文件即可完成最终部署yaml文件的构建.</p>
+<p>⚠️特别注意: 在此方案中Lambda资源的 由于不是 K8S内建资源,属于Custom Resource Definition(CRD),因此无法直接使用预制的结构使用kustomize edit set进行替换,这时需要声明自定义类型进行转换.<br>
+具体需要到<br>
+kustomizeconfig路径下创建mykind.yaml 文件,并在文件中定义资源的结构.<br>
+在此方案中具体定义如下:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>images:
+  - path: spec/code/imageURI
+    kind: Function
+</code></pre><p>同时在kustomization.yaml文件中需要在结尾配置中声明这个类型:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- function.yaml
+configurations:
+- kustomizeconfig/mykind.yaml
+
+</code></pre><h3 id="23-argocd-部署和配置">2.3. ArgoCD 部署和配置. </h3>
+<p>ArgoCD的安装部署非常简单,可以参考<a href="https://argo-cd.readthedocs.io/en/stable/getting_started/">https://argo-cd.readthedocs.io/en/stable/getting_started/</a>, 建议也同步安装好ArgoCD Cli</p>
+<p>部署完成后可以使用"kubectl port-forward -n argocd service/argocd-server 8080:80"将ArgoCD的访问页面映射到本地访问8080端口访问,可以使用"kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d" 获取admin的密码</p>
+<p>登录完成就可以进入部署应用界面部署应用</p>
+<p>其中在 SyncPolicy中可以设置是否为自动同步,建议在生产环境加入一个审批过程然后再部署.<br>
+<img src="img/image-4.png" alt="alt text"></p>
+<p>在源的配置中可以选择指定的目录和分支</p>
+<p><img src="img/image-5.png" alt="alt text"></p>
+<h3 id="24-aws-controllers-for-kubernetes-ack的部署和配置">2.4. AWS Controllers for Kubernetes (ACK)的部署和配置 </h3>
+<p>ACK 在此方案中的主要作用是部署容器环境之外的AWS 资源,例如AWS Lambda ,Amazon RDS 数据库等<br>
+<img src="img/image-7.png" alt="alt text"><br>
+其主要原理是利用ACK服务控制器(ACK Service controller)对AWS 各种服务进行部署和管理.<br>
+截止此文发稿,目前 ACK 已经支持20类AWS 服务.具体服务的支持情况可以参考<a href="https://aws-controllers-k8s.github.io/community/docs/community/services/">此链接</a><br>
+ACK 的安装过程可以参考 此文档:<a href="https://aws-controllers-k8s.github.io/community/docs/user-docs/install/,%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8helm%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85">https://aws-controllers-k8s.github.io/community/docs/user-docs/install/,推荐使用helm方式安装</a>.</p>
+<p>由于每个服务器控制器部署时需要的权限不同,因此需要根据需要部署和管理的服务不同,分配的权限策略不同,以 ACK Lambda controller 为例,需要在{ack-lambda-controller }角色中增加AmazonEC2ContainerRegistry的读取权限 否则Lambda无法从镜像中拉取镜像部署.</p>
+<h3 id="25-lambda-web-adaptercloudfront的部署">2.5. Lambda Web Adapter+Cloudfront的部署 </h3>
+<p>Lambda Web Adapter 非常适合改造已有的web业务,只需要在之前容器Dockerfile中加入一行代码即可(arm和x86架构不同),例如</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>FROM public.ecr.aws/docker/library/node:20-slim
+COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:0.8.3 /lambda-adapter /opt/extensions/lambda-adapter ## &lt;---插入此行即可
+ENV PORT=7000
+WORKDIR "/var/task"
+ADD src/package.json /var/task/package.json
+ADD src/package-lock.json /var/task/package-lock.json
+RUN npm install --omit=dev
+ADD src/ /var/task
+CMD ["node", "index.js"]
+</code></pre><p>官方仓库中提供了非常多的<a href="https://github.com/awslabs/aws-lambda-web-adapter/tree/main/examples">示例</a>可以参考,在生产部署是需要注意临时文件的管理,目前Lambda只允许写入到/tmp路径(需要在lambda配置中设定).</p>
+<p>LWA 发布的页面可以通过Lambda URL配合Cloudfront 进行发布,而且配合Cloudfront的连接复用也可以达到动态访问加速的效果,如果Lambda发布的web应用只使用基本的get请求,可以通过Cloudfront Origin access control(OAC)进行访问控制,否则需要将Lambda URL设置为公开访问或额外配置验证方法.<br>
+如果希望通过Cloudformation快速部署LambdaURL+Cloudfront,可以参考<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=cloudfront-function-url-stack&amp;templateURL=https://cloudfront-blog-resources.s3.amazonaws.com/cf-lambda-url-blog/deploy.yml">此Stack例子</a></p>
+<p><img src="img/image-8.png" alt="alt text"></p>
+<h2 id="3-方案流程验证">3. 方案流程验证 </h2>
+<ol>
+<li>提交更新</li>
+</ol>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>...
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/brilliantwf/lambda-workflow.git
+   576ae06..cf6f9c6  main -&gt; main
+</code></pre><p>在Github Action中可以看到已触发更新的workflow</p>
+<p><img src="img/image-9.png" alt="alt text"></p>
+<p>此时在ECR中可以看到 对应的Image做了更新,并标记了最新的tag.</p>
+<ol start="2">
+<li>ArgCD 触发同步</li>
+</ol>
+<p>此时可以看到ArgCD应用的同步状态已变更为OutOfSync,说明应用代码有变更</p>
+<p><img src="img/image-10.png" alt="alt text"></p>
+<p>此时点击 SYNC 按钮,等待片刻即可看到应用部署完成.<br>
+<img src="img/image-11.png" alt="alt text"></p>
+<p>点击应用详情里,可以看到部署的manifest</p>
+<p><img src="img/image-12.png" alt="alt text"></p>
+<ol start="3">
+<li>通过Cloudfront 访问即可访问到更新后的页面<br>
+<img src="img/image-13.png" alt="alt text"></li>
+</ol>
+<p>容器环境的更新和上述过程类似,只需要更新Deployment Repo中对应的目录即可自动触发后续步骤.<br>
+最终效果类似如下图:<br>
+<img src="img/image-14.png" alt="alt text"></p>
+<h2 id="4-总结">4. 总结 </h2>
+<p>由于Lmabda的无服务器技术的计费是按照Lambda的资源配置和运行时长计费,一般每次请求的调用时间以毫秒计算,相较于容器和EC2其计费颗粒度更细,因此使用无服务器化相较于容器化会更进一步降低成本,企业可以根据其业务情况,对http业务做无服务器化改造,对于需要长链接和TCP支持业务仍然可以考虑将这些业务部署在容器化环境.本方案提供了一个可以使用一套同时无服务器和容器化的业务进行部署和管理的参考架构,可以降低了混合环境的维护复杂度,实际生产环境可以根据情况增加持续集成部分的测试和审核阶段,在容器和环境利用Kyverno等组件规范化容器资源策略等.</p>
+<h2 id="4-参考资料">4. 参考资料 </h2>
+<ol>
+<li>文中提到的相关代码:<a href="https://github.com/brilliantwf/lambda-workflow">https://github.com/brilliantwf/lambda-workflow</a></li>
+<li>使用Lambda Web Adapter构建web应用:<a href="https://aws.amazon.com/cn/blogs/china/building-web-applications-on-lambda-using-the-lambda-web-adapter/">https://aws.amazon.com/cn/blogs/china/building-web-applications-on-lambda-using-the-lambda-web-adapter/</a></li>
+<li>GitOps delivery with Amazon EKS Blueprints and ArgoCD:<a href="https://aws.amazon.com/cn/blogs/containers/continuous-deployment-and-gitops-delivery-with-amazon-eks-blueprints-and-argocd/">https://aws.amazon.com/cn/blogs/containers/continuous-deployment-and-gitops-delivery-with-amazon-eks-blueprints-and-argocd/</a></li>
+</ol>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
