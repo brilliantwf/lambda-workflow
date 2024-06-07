@@ -1,7 +1,6 @@
 import logging
 import sys
 from flask import Flask, render_template
-from jinja2 import ChoiceLoader, FileSystemLoader
 
 app = Flask(__name__)
 
@@ -22,10 +21,6 @@ app.logger.setLevel(logging.DEBUG)
 def hello():
     return render_template('index.html')
 
-@app.route('/blog', methods=['GET'])
-def blog_page():
-    app.logger.debug('Rendering blog template!')
-    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run()
