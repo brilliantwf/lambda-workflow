@@ -1,6 +1,6 @@
 import logging
 import sys
-from flask import Flask, request
+from flask import Flask, request, render_template_string
 import socket
 
 
@@ -20,23 +20,42 @@ app.logger.addHandler(stream_handler)
 app.logger.setLevel(logging.DEBUG)
 
 @app.route('/', methods=['GET', 'POST'])
-def display_headers_and_hostname():
+def index():
     # 获取请求头信息
     headers = request.headers
-
-    # 获取服务器主机名
+    # 获取响应信息（示例）
+    response_info = {'status': 'success', 'message': 'Response data here.'}
+    # 获取主机名
     hostname = socket.gethostname()
 
-    # 将请求头信息和主机名格式化为 HTML
-    headers_html = '<h1>Request Headers</h1><ul>'
-    for header, value in headers.items():
-        headers_html += f'<li><strong>{header}:</strong> {value}</li>'
-    headers_html += '</ul>'
+    # HTML 模板
+    html_content = '''
+    <html>
+        <head><title>Server Info</title></head>
+        <body>
+            <h1>Server Information</h1>
+            <h2>Hostname</h2>
+            <table border="1">
+                <tr><th>Hostname</th><td>{}</td></tr>
+            </table>
+            <h2>Request Headers</h2>
+            <table border="1">
+                <tr><th>Header</th><th>Value</th></tr>
+                {}
+            </table>
+            <h2>Response Information</h2>
+            <table border="1">
+                <tr><th>Status</th><td>{}</td></tr>
+                <tr><th>Message</th><td>{}</td></tr>
+            </table>
+        </body>
+    </html>
+    '''
 
-    # 添加主机名信息
-    headers_html += f'<h2>Server Hostname: {hostname}</h2>'
+    # 处理请求头信息为 HTML 表格格式
+    request_headers_html = ''.join(f'<tr><td>{k}</td><td>{v}</td></tr>' for k, v in headers.items())
 
-    return headers_html
+    return render_template_string(html_content.format(hostname, request_headers_html, response_info['status'], response_info['message']))
 
 
 if __name__ == '__main__':
