@@ -1,6 +1,6 @@
 import logging
 import sys
-from flask import Flask, request, render_template
+from flask import Flask, request
 import socket
 
 
@@ -20,16 +20,24 @@ app.logger.addHandler(stream_handler)
 app.logger.setLevel(logging.DEBUG)
 
 @app.route('/', methods=['GET', 'POST'])
-def index():
-    hostname = request.headers.get('Host')
-    request_headers = dict(request.headers)
-    response_headers = dict(request.headers)
+def display_headers_and_hostname():
+    # 获取请求头信息
+    headers = request.headers
 
-    return render_template('index.html', hostname=hostname, request_headers=request_headers, response_headers=response_headers)
+    # 获取服务器主机名
+    hostname = socket.gethostname()
 
-@app.route('/style.css')
-def style():
-    return render_template('style.css')
+    # 将请求头信息和主机名格式化为 HTML
+    headers_html = '<h1>Request Headers</h1><ul>'
+    for header, value in headers.items():
+        headers_html += f'<li><strong>{header}:</strong> {value}</li>'
+    headers_html += '</ul>'
+
+    # 添加主机名信息
+    headers_html += f'<h2>Server Hostname: {hostname}</h2>'
+
+    return headers_html
+
 
 if __name__ == '__main__':
     app.run(debug=True)
