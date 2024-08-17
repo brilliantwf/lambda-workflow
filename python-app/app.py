@@ -21,41 +21,64 @@ app.logger.setLevel(logging.DEBUG)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    # 获取请求头信息
-    headers = request.headers
-    # 获取响应信息（示例）
-    response_info = {'status': 'success', 'message': 'Response data here.'}
-    # 获取主机名
+    # 获取服务器的主机名
     hostname = socket.gethostname()
+    
+    # 获取请求头信息
+    request_headers = request.headers
+    request_headers_dict = dict(request_headers)
+    
+    # 获取响应头信息（在此示例中，响应头信息是空的，因为它将在响应生成后填充）
+    response_headers_dict = {}
 
-    # HTML 模板
-    html_content = '''
+    # 渲染 HTML
+    return render_template_string('''
     <html>
-        <head><title>Server Info</title></head>
-        <body>
-            <h1>Server Information</h1>
-            <h2>Hostname</h2>
-            <table border="1">
-                <tr><th>Hostname</th><td>{}</td></tr>
-            </table>
-            <h2>Request Headers</h2>
-            <table border="1">
-                <tr><th>Header</th><th>Value</th></tr>
-                {}
-            </table>
-            <h2>Response Information</h2>
-            <table border="1">
-                <tr><th>Status</th><td>{}</td></tr>
-                <tr><th>Message</th><td>{}</td></tr>
-            </table>
-        </body>
+    <head>
+        <title>Server Info</title>
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>服务器信息</h1>
+        
+        <h2>主机名</h2>
+        <table>
+            <tr><th>主机名</th></tr>
+            <tr><td>{{ hostname }}</td></tr>
+        </table>
+        
+        <h2>请求头信息</h2>
+        <table>
+            <tr><th>头部名称</th><th>值</th></tr>
+            {% for key, value in request_headers_dict.items() %}
+            <tr><td>{{ key }}</td><td>{{ value }}</td></tr>
+            {% endfor %}
+        </table>
+        
+        <h2>响应头信息</h2>
+        <table>
+            <tr><th>头部名称</th><th>值</th></tr>
+            {% for key, value in response_headers_dict.items() %}
+            <tr><td>{{ key }}</td><td>{{ value }}</td></tr>
+            {% endfor %}
+        </table>
+    </body>
     </html>
-    '''
-
-    # 处理请求头信息为 HTML 表格格式
-    request_headers_html = ''.join(f'<tr><td>{k}</td><td>{v}</td></tr>' for k, v in headers.items())
-
-    return render_template_string(html_content.format(hostname, request_headers_html, response_info['status'], response_info['message']))
+    ''', hostname=hostname, request_headers_dict=request_headers_dict, response_headers_dict=response_headers_dict)
 
 
 if __name__ == '__main__':
