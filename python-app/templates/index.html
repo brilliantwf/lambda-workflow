@@ -1,15 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Simple Flask Webpage via lambda URL</title>
+    <title>Server Information</title>
+    <link rel="stylesheet" href="{{ url_for('style') }}">
 </head>
 <body>
-    <center>
-        <h3>This is GB Lambda website demo</h3>
-        <img src="{{ url_for('static', filename='images/example.jpg') }}" width="300" height="200" alt="Example Image">
-        <p>AWS Lambda Web Adapter allows developers to build web apps (http api) with familiar frameworks (e.g. Express.js, Next.js, Flask, SpringBoot, ASP.NET and Laravel, anything speaks HTTP 1.1/1.0) and run it on AWS Lambda.</p>
-    </center>
+    <h1>Server Information</h1>
+
+    <h2>Hostname</h2>
+    <table>
+        <tr>
+            <th>Hostname</th>
+        </tr>
+        <tr>
+            <td>{{ hostname }}</td>
+        </tr>
+    </table>
+
+    <h2>Request Headers</h2>
+    <table>
+        <tr>
+            <th>Header</th>
+            <th>Value</th>
+        </tr>
+        {% for header, value in request_headers.items() %}
+        <tr>
+            <td>{{ header }}</td>
+            <td>{{ value }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Response Headers</h2>
+    <table>
+        <tr>
+            <th>Header</th>
+            <th>Value</th>
+        </tr>
+        {% for header, value in response_headers.items() %}
+        <tr>
+            <td>{{ header }}</td>
+            <td>{{ value }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>
-
