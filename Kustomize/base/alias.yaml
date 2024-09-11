@@ -2,7 +2,7 @@ apiVersion: lambda.services.k8s.aws/v1alpha1
 kind: Alias
 metadata:
   annotations:
-    services.k8s.aws/region: ap-northeast-1
+    services.k8s.aws/region: us-west-2
   name: lambda-oci-ack-alias
 spec:
   name: prod
