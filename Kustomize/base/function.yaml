@@ -10,5 +10,4 @@ spec:
  code:
      imageURI: 544592066775.dkr.ecr.us-west-2.amazonaws.com/lambda-repo:latest
  role: arn:aws:iam::544592066775:role/lambda_basic_execution
- functionVersion: Newversion
  description: function created by ACK lambda-controller e2e tests
