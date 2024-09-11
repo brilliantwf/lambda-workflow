@@ -9,5 +9,4 @@ spec:
   functionRef: 
     from: 
       name: lambda-oci-ack
-      namespace: default
-  functionVersion: "lambda-oci-ack-version-6"
+  functionVersion: lambda-oci-ack-version-6

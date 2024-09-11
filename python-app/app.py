@@ -28,7 +28,7 @@ def display_headers_and_hostname():
     hostname = socket.gethostname()
 
     # 将请求头信息和主机名格式化为 HTML
-    headers_html = '<h1>New version2</h1><ul>'
+    headers_html = '<h1>New version3</h1><ul>'
     for header, value in headers.items():
         headers_html += f'<li><strong>{header}:</strong> {value}</li>'
     headers_html += '</ul>'
