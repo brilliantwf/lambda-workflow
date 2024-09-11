@@ -1,0 +1,11 @@
+apiVersion: lambda.services.k8s.aws/v1alpha1
+kind: Version
+metadata:
+  annotations:
+    services.k8s.aws/region: us-west-2
+  name: lambda-oci-ack-version-6
+spec:
+  functionRef: 
+    from: 
+      name: lambda-oci-ack
+      namespace: default
