@@ -1,0 +1,37 @@
+apiVersion: lambda.services.k8s.aws/v1alpha1
+kind: Alias
+metadata:
+  annotations:
+    services.k8s.aws/region: us-west-2
+  name: lambda-oci-ack-alias
+spec:
+  functionRef:
+    from:
+      name: lambda-oci-ack
+  functionVersion: lambda-oci-ack-version-6
+  name: prod
+---
+apiVersion: lambda.services.k8s.aws/v1alpha1
+kind: Function
+metadata:
+  annotations:
+    services.k8s.aws/region: us-west-2
+  name: lambda-oci-ack
+spec:
+  code:
+    imageURI: 544592066775.dkr.ecr.us-west-2.amazonaws.com/lambda-repo:5e54e43b54192d3d8acf149c3f944edfa3e1cf40
+  description: function created by ACK lambda-controller e2e tests
+  name: lambda-oci-ack
+  packageType: Image
+  role: arn:aws:iam::544592066775:role/lambda_basic_execution
+---
+apiVersion: lambda.services.k8s.aws/v1alpha1
+kind: Version
+metadata:
+  annotations:
+    services.k8s.aws/region: us-west-2
+  name: lambda-oci-ack-version-6
+spec:
+  functionRef:
+    from:
+      name: lambda-oci-ack

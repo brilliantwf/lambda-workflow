@@ -3,7 +3,7 @@ kind: Version
 metadata:
   annotations:
     services.k8s.aws/region: us-west-2
-  name: lambda-oci-ack-version-6
+  name: lambda-oci-ack-version
 spec:
   functionRef: 
     from: 

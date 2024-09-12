@@ -87,6 +87,12 @@ jobs:
         kustomize edit set image ${{ steps.build-image.outputs.image }}
       working-directory: ./Kustomize/base
 
+    - name: Get Lambda Version
+      uses: tale/kubectl-action@v1
+      with:
+        base64-kube-config: ${{ secrets.KUBE_CONFIG }}
+    - run: kubectl get pods
+
     - name: Apply Kustomize configuration
       run: |
         kustomize build ./base
