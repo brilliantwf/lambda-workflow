@@ -26,6 +26,7 @@ def display_headers_and_hostname():
 
     # 获取服务器主机名
     hostname = socket.gethostname()
+    region = socket.getfqdn()
 
     # 将请求头信息和主机名格式化为 HTML
     headers_html = '<h1>New version9</h1><ul>'
@@ -35,6 +36,9 @@ def display_headers_and_hostname():
 
     # 添加主机名信息
     headers_html += f'<h2>Server Hostname: {hostname}</h2>'
+    
+    # 添加aws 区域信息
+    headers_html += f'<h2>Server Region: {region}</h2>'
 
     return headers_html
 
