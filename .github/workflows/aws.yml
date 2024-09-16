@@ -90,7 +90,8 @@ jobs:
     - name: Update kube config
       run: aws eks update-kubeconfig --name uw2-eks-cluster --region ${{ env.AWS_REGION }}
 
-    - uses: int128/deploy-lambda-action@v1
+    - name: Deploy to lambda
+      uses: appleboy/lambda-action@master
       with:
         function-name: lambda-oci
         image-uri: ${{ steps.build-image.outputs.image }}
