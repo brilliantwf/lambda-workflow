@@ -91,6 +91,10 @@ jobs:
     - name: Update kube config
       run: aws eks update-kubeconfig --name uw2-eks-cluster --region ${{ env.AWS_REGION }}
 
+    - uses: GuillaumeFalourd/wait-sleep-action@v1
+      with: 
+        time: '10'
+
     - name: Deploy to lambda
       uses: appleboy/lambda-action@master
       with: 
