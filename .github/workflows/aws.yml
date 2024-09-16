@@ -95,7 +95,7 @@ jobs:
       with: 
         aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        image_uri: ${{ steps.build-image.outputs.image }}
+        image_uri: ${{ secrets.AWS_ACCOUNT }}.dkr.ecr.ap-northeast-1.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG
         aws_region: ap-northeast-1
         function_name: lambda-oci
 
