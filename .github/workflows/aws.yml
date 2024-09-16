@@ -80,6 +80,7 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+        echo "repo_tag=$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
       working-directory: ./python-app
 
     - name: Update Kustomize image
@@ -95,7 +96,7 @@ jobs:
       with: 
         aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        image_uri: ${{ secrets.AWS_ACCOUNT }}.dkr.ecr.ap-northeast-1.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG
+        image_uri: ${{ secrets.AWS_ACCOUNT }}.dkr.ecr.ap-northeast-1.amazonaws.com/${{ steps.build-image.outputs.repo_tag }}
         aws_region: ap-northeast-1
         function_name: lambda-oci
 
