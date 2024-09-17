@@ -28,13 +28,16 @@ def display_headers_and_hostname():
     hostname = socket.gethostname()
 
     # 将请求头信息和主机名格式化为 HTML
-    headers_html = '<h1>请求信息9</h1><ul>'
+    headers_html = '<h1>Header信息</h1><ul>'
     for header, value in headers.items():
         headers_html += f'<li><strong>{header}:</strong> {value}</li>'
     headers_html += '</ul>'
 
-    # 添加主机名信息
-    headers_html += f'<h2>Server Hostname: {hostname}</h2>'
+    # 添加header 中 Cloudfront-viewer-City
+    headers_html += f'<h2>Cloudfront-viewer-City: {headers.get("Cloudfront-Viewer-City")}</h2>'
+    # 添加header 中 Host
+    headers_html += f'<h2>Host: {headers.get("Host")}</h2>'
+
 
     return headers_html
 
