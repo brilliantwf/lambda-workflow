@@ -37,11 +37,11 @@ def display_headers_and_hostname():
     if 'Cloudfront-Viewer-Country' in headers:
         country_code = headers['Cloudfront-Viewer-Country']
         if country_code == 'JP':
-            headers_html += '<h2>Viwer From 🇯🇵</h2>'
+            headers_html += '<h2>Viewer From 🇯🇵</h2>'
         elif country_code == 'US':
-            headers_html += '<h2>Viwer From 🇺🇸</h2>'
+            headers_html += '<h2>Viewer From 🇺🇸</h2>'
         else:
-            headers_html += '<h2>Viwer From 🌍</h2>'
+            headers_html += '<h2>Viewer From 🌍</h2>'
             
     return headers_html
 
