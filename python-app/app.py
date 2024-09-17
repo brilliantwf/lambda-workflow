@@ -42,6 +42,9 @@ def display_headers_and_hostname():
             headers_html += '<h2>Viewer From 🇺🇸</h2>'
         else:
             headers_html += '<h2>Viewer From 🌍</h2>'
+    
+    # 将Header中Host信息添加到HTML中
+    headers_html += f'<h2>Host: {hostname}</h2>'
             
     return headers_html
 
