@@ -33,12 +33,16 @@ def display_headers_and_hostname():
         headers_html += f'<li><strong>{header}:</strong> {value}</li>'
     headers_html += '</ul>'
 
-    # 添加header 中 Cloudfront-viewer-City
-    headers_html += f'<h2>Cloudfront-viewer-City: {headers.get("Cloudfront-Viewer-City")}</h2>'
-    # 添加header 中 Host
-    headers_html += f'<h2>Host: {headers.get("Host")}</h2>'
-
-
+    # 根据Header中Cloudfront-Viewer-Country 国家代码返回对应的国旗标志emoji
+    if 'Cloudfront-Viewer-Country' in headers:
+        country_code = headers['Cloudfront-Viewer-Country']
+        if country_code == 'JP':
+            headers_html += '<h2>🇯🇵</h2>'
+        elif country_code == 'US':
+            headers_html += '<h2>🇺🇸</h2>'
+        else:
+            headers_html += '<h2>🌍</h2>'
+            
     return headers_html
 
 
