@@ -2,12 +2,13 @@ import logging
 import sys
 from flask import Flask, request
 import socket
+import os
 
 
 app = Flask(__name__)
 
 # 创建一个流处理器(StreamHandler),并设置为输出到stderr
-stream_handler = logging.StreamHandler(stream=sys.stderr)
+stream_handler = logging.StreamHandler()
 
 # 设置日志格式
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -16,8 +17,8 @@ stream_handler.setFormatter(formatter)
 # 为应用程序日志添加处理器
 app.logger.addHandler(stream_handler)
 
-# 设置日志级别为DEBUG
-app.logger.setLevel(logging.DEBUG)
+# 设置日志级别为INFO
+app.logger.setLevel(logging.INFO)
 
 @app.route('/', methods=['GET', 'POST'])
 def display_headers_and_hostname():
