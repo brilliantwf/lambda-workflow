@@ -46,7 +46,8 @@ def display_headers_and_hostname():
     # 将Header中Host信息添加到HTML中
     headers_html += f'<h2>Host: {headers["Host"]}</h2>'
     return headers_html
-
+# 输出日志
+app.logger.info(f'Request received: {request.headers}')
 
 if __name__ == '__main__':
     app.run(debug=True)
