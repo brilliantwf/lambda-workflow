@@ -104,8 +104,8 @@ jobs:
         aws_region: ap-northeast-1
         function_name: lambda-oci
 
-    - name: Get Lambda version
-      run: kubectl get nodes
+#    - name: Get Lambda version
+#      run: kubectl get nodes
 
     - name: Apply Kustomize configuration
       run: |
