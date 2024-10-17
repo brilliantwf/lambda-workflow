@@ -48,7 +48,6 @@ def display_headers_and_hostname():
     headers_html += f'<h2>Host: {headers["Host"]}</h2>'
     # 输出日志到stdout
     app.logger.info(f'Request received: {request.headers}')
-    app.logger.flush()
     print(f'Print Request received: {request.headers}')
     return headers_html
 
